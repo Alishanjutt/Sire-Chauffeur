@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Now — Sira Chauffeur | Reserve Your Luxury Ride New York</title>
+  <meta name="description" content="Book your luxury chauffeur service in New York. Instant quote for airport transfers, corporate travel, events, and group transportation. Sedan, SUV, Sprinter, and bus available.">
+  <link rel="canonical" href="https://sirachauffeur.com/booking">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .booking-layout {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 60px;
+      align-items: start;
+    }
+    .booking-form-wrap {
+      background: var(--charcoal);
+      border: 1px solid rgba(201,168,76,0.15);
+      padding: 52px;
+    }
+    .booking-sidebar { position: sticky; top: 110px; }
+    .sidebar-block {
+      background: var(--charcoal);
+      border: 1px solid rgba(201,168,76,0.1);
+      padding: 36px;
+      margin-bottom: 20px;
+    }
+    .sidebar-block h4 {
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      letter-spacing: 3px;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .sidebar-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 18px;
+      font-size: 14px;
+      color: var(--mist-light);
+      line-height: 1.6;
+    }
+    .sidebar-item-icon { color: var(--gold); flex-shrink: 0; margin-top: 2px; }
+    .form-section-title {
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      letter-spacing: 3px;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin: 36px 0 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .form-section-title::before {
+      content: '';
+      display: inline-block;
+      width: 20px;
+      height: 1px;
+      background: var(--gold);
+    }
+    .vehicle-select-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 0;
+    }
+    .vehicle-option {
+      border: 1px solid rgba(201,168,76,0.15);
+      padding: 16px 12px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s;
+      position: relative;
+    }
+    .vehicle-option:hover,
+    .vehicle-option.selected {
+      border-color: var(--gold);
+      background: rgba(201,168,76,0.06);
+    }
+    .vehicle-option input[type="radio"] { display: none; }
+    .vehicle-option .v-name {
+      font-family: 'Cinzel', serif;
+      font-size: 9px;
+      letter-spacing: 2px;
+      color: var(--ivory);
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .vehicle-option .v-cap {
+      font-size: 11px;
+      color: var(--mist);
+    }
+    .vehicle-option.selected .v-name { color: var(--gold); }
+    @media (max-width: 1000px) {
+      .booking-layout { grid-template-columns: 1fr; }
+      .booking-sidebar { position: static; }
+      .vehicle-select-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .booking-form-wrap { padding: 28px 20px; }
+      .vehicle-select-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">
+      <svg class="logo-icon" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="22" stroke="#C9A84C" stroke-width="1"/><path d="M8 28 C8 28, 14 20, 24 20 C34 20, 40 28, 40 28" stroke="#C9A84C" stroke-width="1.5" fill="none"/><circle cx="14" cy="30" r="3.5" fill="none" stroke="#C9A84C" stroke-width="1.5"/><circle cx="34" cy="30" r="3.5" fill="none" stroke="#C9A84C" stroke-width="1.5"/><path d="M8 28 L10 22 L18 19 L30 19 L38 22 L40 28" fill="rgba(201,168,76,0.08)" stroke="#C9A84C" stroke-width="1"/><path d="M18 19 L21 14 L27 14 L30 19" fill="rgba(201,168,76,0.06)" stroke="#C9A84C" stroke-width="0.8"/></svg>
+      <div class="logo-text"><span class="logo-name">Sira</span><span class="logo-sub">Chauffeur</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="fleet.html">Our Fleet</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="booking.html" class="btn btn-primary nav-cta">Book Now</a>
+    <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-content">
+    <div class="breadcrumb">
+      <a href="../index.html">Home</a><span>›</span><span>Book Now</span>
+    </div>
+    <h1>Reserve Your <em>Ride</em></h1>
+    <p>Complete the form below and our team will respond with your confirmed quote within 30 minutes. Available 24 hours a day, 7 days a week.</p>
+  </div>
+</section>
+
+<section class="section-pad" style="background: var(--onyx);">
+  <div class="container">
+    <div class="booking-layout">
+
+      <!-- FORM -->
+      <div class="booking-form-wrap">
+        <span class="eyebrow">Reservation Request</span>
+        <h2 style="font-size:36px; font-weight:300; color:var(--ivory); margin-bottom:8px;">Get Your <em style="color:var(--gold);">Quote</em></h2>
+        <p style="font-size:14px; color:var(--mist); margin-bottom:8px; line-height:1.7;">Fill in your trip details below. All fields marked with ◆ are required. We'll send your personalized quote to your email promptly.</p>
+        <div style="height:1px; background:rgba(201,168,76,0.12); margin:28px 0;"></div>
+
+        <form id="booking-form" novalidate>
+
+          <!-- PERSONAL INFORMATION -->
+          <div class="form-section-title">Personal Information</div>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="full_name">Full Name ◆</label>
+              <input type="text" id="full_name" name="full_name" placeholder="Your full legal name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address ◆</label>
+              <input type="email" id="email" name="email" placeholder="your@email.com" required>
+            </div>
+          </div>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="phone">Phone Number ◆</label>
+              <input type="tel" id="phone" name="phone" placeholder="+1 (212) 000-0000" required>
+            </div>
+            <div class="form-group">
+              <label for="passengers">Number of Passengers ◆</label>
+              <select id="passengers" name="passengers" required>
+                <option value="" disabled selected>Select count</option>
+                <option value="1">1 Passenger</option>
+                <option value="2">2 Passengers</option>
+                <option value="3">3 Passengers</option>
+                <option value="4">4 Passengers</option>
+                <option value="5">5 Passengers</option>
+                <option value="6">6 Passengers</option>
+                <option value="7-14">7 – 14 Passengers</option>
+                <option value="15-28">15 – 28 Passengers</option>
+                <option value="29-55">29 – 55 Passengers</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- TRIP DETAILS -->
+          <div class="form-section-title">Trip Details</div>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="pickup_date">Pick-Up Date ◆</label>
+              <input type="date" id="pickup_date" name="pickup_date" required>
+            </div>
+            <div class="form-group">
+              <label for="pickup_time">Pick-Up Time ◆</label>
+              <input type="time" id="pickup_time" name="pickup_time" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="pickup_location">Pick-Up Location ◆</label>
+            <input type="text" id="pickup_location" name="pickup_location" placeholder="Full address, hotel name, or airport terminal (e.g., JFK Terminal 4)" required>
+          </div>
+          <div class="form-group">
+            <label for="dropoff_location">Drop-Off Location ◆</label>
+            <input type="text" id="dropoff_location" name="dropoff_location" placeholder="Full address, hotel name, or destination" required>
+          </div>
+
+          <!-- SERVICE TYPE -->
+          <div class="form-section-title">Service Type</div>
+          <div class="form-group">
+            <label for="service_type">Type of Service ◆</label>
+            <select id="service_type" name="service_type" required>
+              <option value="" disabled selected>Select your service</option>
+              <option value="airport_arrival">Airport Arrival Transfer</option>
+              <option value="airport_departure">Airport Departure Transfer</option>
+              <option value="corporate">Corporate / Business Travel</option>
+              <option value="wedding">Wedding Transportation</option>
+              <option value="event">Special Event / Gala</option>
+              <option value="hourly">Hourly Charter</option>
+              <option value="group">Group / Corporate Shuttle</option>
+              <option value="tour">City Tour / Sightseeing</option>
+              <option value="other">Other (describe below)</option>
+            </select>
+          </div>
+
+          <!-- VEHICLE SELECTION -->
+          <div class="form-section-title">Preferred Vehicle</div>
+          <div class="vehicle-select-grid" style="margin-bottom: 24px;">
+            <label class="vehicle-option" onclick="this.classList.toggle('selected')">
+              <input type="radio" name="vehicle" value="sedan">
+              <svg width="36" height="24" viewBox="0 0 80 40" fill="none" style="margin-bottom:8px;"><path d="M5 30 L5 22 L12 12 L28 8 L52 8 L68 16 L73 22 L73 30 Z" stroke="#C9A84C" stroke-width="1.5" fill="rgba(201,168,76,0.06)"/><circle cx="20" cy="33" r="7" stroke="#C9A84C" stroke-width="1.2"/><circle cx="58" cy="33" r="7" stroke="#C9A84C" stroke-width="1.2"/></svg>
+              <span class="v-name">Sedan</span>
+              <span class="v-cap">1–3 pax</span>
+            </label>
+            <label class="vehicle-option" onclick="this.classList.toggle('selected')">
+              <input type="radio" name="vehicle" value="suv">
+              <svg width="36" height="24" viewBox="0 0 80 45" fill="none" style="margin-bottom:8px;"><path d="M5 35 L5 24 L14 10 L27 7 L55 7 L68 16 L75 24 L75 35 Z" stroke="#C9A84C" stroke-width="1.5" fill="rgba(201,168,76,0.06)"/><circle cx="20" cy="38" r="8" stroke="#C9A84C" stroke-width="1.2"/><circle cx="58" cy="38" r="8" stroke="#C9A84C" stroke-width="1.2"/></svg>
+              <span class="v-name">SUV</span>
+              <span class="v-cap">1–6 pax</span>
+            </label>
+            <label class="vehicle-option" onclick="this.classList.toggle('selected')">
+              <input type="radio" name="vehicle" value="sprinter">
+              <svg width="36" height="24" viewBox="0 0 90 45" fill="none" style="margin-bottom:8px;"><path d="M5 35 L5 20 L16 8 L28 6 L72 6 L84 16 L88 26 L88 35 Z" stroke="#C9A84C" stroke-width="1.5" fill="rgba(201,168,76,0.06)"/><circle cx="22" cy="38" r="7" stroke="#C9A84C" stroke-width="1.2"/><circle cx="68" cy="38" r="7" stroke="#C9A84C" stroke-width="1.2"/></svg>
+              <span class="v-name">Sprinter</span>
+              <span class="v-cap">Up to 14</span>
+            </label>
+            <label class="vehicle-option" onclick="this.classList.toggle('selected')">
+              <input type="radio" name="vehicle" value="bus28">
+              <svg width="36" height="24" viewBox="0 0 90 40" fill="none" style="margin-bottom:8px;"><rect x="4" y="6" width="82" height="26" rx="3" stroke="#C9A84C" stroke-width="1.2" fill="rgba(201,168,76,0.06)"/><circle cx="20" cy="36" r="5" stroke="#C9A84C" stroke-width="1"/><circle cx="40" cy="36" r="5" stroke="#C9A84C" stroke-width="1"/><circle cx="60" cy="36" r="5" stroke="#C9A84C" stroke-width="1"/><circle cx="74" cy="36" r="5" stroke="#C9A84C" stroke-width="1"/></svg>
+              <span class="v-name">28 Bus</span>
+              <span class="v-cap">Up to 28</span>
+            </label>
+            <label class="vehicle-option" onclick="this.classList.toggle('selected')">
+              <input type="radio" name="vehicle" value="bus55">
+              <svg width="36" height="24" viewBox="0 0 90 42" fill="none" style="margin-bottom:8px;"><rect x="2" y="4" width="86" height="30" rx="5" stroke="#C9A84C" stroke-width="1.2" fill="rgba(201,168,76,0.06)"/><rect x="2" y="32" width="86" height="2" fill="rgba(201,168,76,0.3)"/><circle cx="16" cy="38" r="5" stroke="#C9A84C" stroke-width="1"/><circle cx="36" cy="38" r="5" stroke="#C9A84C" stroke-width="1"/><circle cx="56" cy="38" r="5" stroke="#C9A84C" stroke-width="1"/><circle cx="76" cy="38" r="5" stroke="#C9A84C" stroke-width="1"/></svg>
+              <span class="v-name">Party Bus</span>
+              <span class="v-cap">Up to 55</span>
+            </label>
+            <label class="vehicle-option" onclick="this.classList.toggle('selected')">
+              <input type="radio" name="vehicle" value="any">
+              <svg width="36" height="24" viewBox="0 0 60 40" fill="none" style="margin-bottom:8px;"><circle cx="30" cy="20" r="16" stroke="#C9A84C" stroke-width="1.2" fill="rgba(201,168,76,0.04)"/><path d="M30 12 L30 20 L38 24" stroke="#C9A84C" stroke-width="1.2" stroke-linecap="round"/></svg>
+              <span class="v-name">Recommend</span>
+              <span class="v-cap">Best for me</span>
+            </label>
+          </div>
+
+          <!-- HOW DID YOU HEAR & ADDITIONAL INFO -->
+          <div class="form-section-title">Additional Information</div>
+
+          <div class="form-group">
+            <label for="how_quote">How Would You Like Your Quote? ◆</label>
+            <select id="how_quote" name="how_quote" required>
+              <option value="" disabled selected>Select preference</option>
+              <option value="email">Email — I'll review at my convenience</option>
+              <option value="phone_call">Phone Call — Call me to discuss</option>
+              <option value="text">Text / SMS — Quick quote by text</option>
+              <option value="whatsapp">WhatsApp — Message me on WhatsApp</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="trip_description">Trip Description &amp; Special Requests</label>
+            <textarea id="trip_description" name="trip_description" rows="5" placeholder="Please describe your trip in detail. Include: flight numbers (if applicable), number of bags, any special requirements (child seats, decorations, meet &amp; greet, etc.), return journey needs, or any other information that will help us provide the most accurate quote."></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="heard_from">How Did You Hear About Us?</label>
+            <select id="heard_from" name="heard_from">
+              <option value="" disabled selected>Select option</option>
+              <option value="google">Google Search</option>
+              <option value="referral">Friend / Colleague Referral</option>
+              <option value="instagram">Instagram</option>
+              <option value="facebook">Facebook</option>
+              <option value="yelp">Yelp</option>
+              <option value="previous">Previous Client</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <!-- TERMS -->
+          <div style="background: rgba(201,168,76,0.04); border: 1px solid rgba(201,168,76,0.1); padding: 20px; margin-bottom: 28px; font-size: 13px; color: var(--mist); line-height: 1.7;">
+            <strong style="color: var(--gold);">◆ Quote Confirmation:</strong> This form submits a quote request. Your booking is confirmed only after receiving written confirmation from Sira Chauffeur and completing the deposit. We respond within 30 minutes 24/7.
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center; font-size:12px; padding:18px 36px;">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="margin-right:4px;"><path d="M2 8 L14 8 M10 4 L14 8 L10 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Get My Quote &amp; Book
+          </button>
+
+        </form>
+      </div>
+
+      <!-- SIDEBAR -->
+      <div class="booking-sidebar">
+
+        <div class="sidebar-block">
+          <h4>Why Book With Sira</h4>
+          <div class="sidebar-item">
+            <span class="sidebar-item-icon">◆</span>
+            <span>Response guaranteed within 30 minutes, any hour of the day</span>
+          </div>
+          <div class="sidebar-item">
+            <span class="sidebar-item-icon">◆</span>
+            <span>Fixed-price quotes — no surge pricing, ever</span>
+          </div>
+          <div class="sidebar-item">
+            <span class="sidebar-item-icon">◆</span>
+            <span>Flight tracking included for all airport transfers</span>
+          </div>
+          <div class="sidebar-item">
+            <span class="sidebar-item-icon">◆</span>
+            <span>Free cancellation with 24+ hours notice</span>
+          </div>
+          <div class="sidebar-item">
+            <span class="sidebar-item-icon">◆</span>
+            <span>Fully licensed, insured, and background-checked chauffeurs</span>
+          </div>
+        </div>
+
+        <div class="sidebar-block">
+          <h4>Need Help Booking?</h4>
+          <p style="font-size:14px; color:var(--mist); line-height:1.8; margin-bottom:20px;">Our reservations team is available around the clock for assistance, last-minute bookings, and custom arrangements.</p>
+          <a href="tel:+12125550100" class="btn btn-primary" style="width:100%; justify-content:center; margin-bottom:12px;">
+            ✆ &nbsp; Call Us Now
+          </a>
+          <a href="mailto:reservations@sirachauffeur.com" class="btn btn-ghost" style="width:100%; justify-content:center;">
+            ✉ &nbsp; Send Email
+          </a>
+          <!-- LIVE CHAT INLINE OPTION -->
+          <a href="https://tawk.to" target="_blank" rel="noopener" class="btn btn-outline" style="width:100%; justify-content:center; margin-top:12px; border-color:rgba(46,204,113,0.4); color: #2ECC71;">
+            <span style="width:8px;height:8px;border-radius:50%;background:#2ECC71;flex-shrink:0;animation:pulse 2s infinite;"></span>
+            &nbsp; Live Chat Support
+          </a>
+          <p style="font-size:11px; color:var(--mist); text-align:center; margin-top:10px; letter-spacing:1px;">Replace the Live Chat link above with your chat provider URL</p>
+        </div>
+
+        <div class="sidebar-block">
+          <h4>Accepted Payment</h4>
+          <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:4px;">
+            <span style="border:1px solid rgba(201,168,76,0.15); padding:6px 12px; font-size:12px; color:var(--mist-light);">Visa</span>
+            <span style="border:1px solid rgba(201,168,76,0.15); padding:6px 12px; font-size:12px; color:var(--mist-light);">Mastercard</span>
+            <span style="border:1px solid rgba(201,168,76,0.15); padding:6px 12px; font-size:12px; color:var(--mist-light);">Amex</span>
+            <span style="border:1px solid rgba(201,168,76,0.15); padding:6px 12px; font-size:12px; color:var(--mist-light);">Cash</span>
+            <span style="border:1px solid rgba(201,168,76,0.15); padding:6px 12px; font-size:12px; color:var(--mist-light);">Zelle</span>
+            <span style="border:1px solid rgba(201,168,76,0.15); padding:6px 12px; font-size:12px; color:var(--mist-light);">Corporate Invoice</span>
+          </div>
+        </div>
+
+        <div style="background: var(--gold); padding: 28px 24px; text-align:center;">
+          <p style="font-family:'Cormorant Garamond',serif; font-size:22px; color:var(--onyx); line-height:1.4; margin-bottom:8px;"><em>"Punctuality is the politeness of kings."</em></p>
+          <p style="font-size:11px; color:rgba(10,10,10,0.6); font-family:'Cinzel',serif; letter-spacing:3px; text-transform:uppercase;">— Sira Promise</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="../index.html" class="nav-logo">
+          <svg class="logo-icon" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="22" stroke="#C9A84C" stroke-width="1"/><path d="M8 28 C8 28, 14 20, 24 20 C34 20, 40 28, 40 28" stroke="#C9A84C" stroke-width="1.5" fill="none"/><circle cx="14" cy="30" r="3.5" fill="none" stroke="#C9A84C" stroke-width="1.5"/><circle cx="34" cy="30" r="3.5" fill="none" stroke="#C9A84C" stroke-width="1.5"/><path d="M8 28 L10 22 L18 19 L30 19 L38 22 L40 28" fill="rgba(201,168,76,0.08)" stroke="#C9A84C" stroke-width="1"/></svg>
+          <div class="logo-text"><span class="logo-name">Sira</span><span class="logo-sub">Chauffeur</span></div>
+        </a>
+        <p>Reserve your luxury chauffeur experience in New York. Available 24/7 for bookings and inquiries.</p>
+      </div>
+      <div class="footer-col"><h5>Services</h5><ul><li><a href="services.html#airport">Airport Transfers</a></li><li><a href="services.html#corporate">Corporate</a></li><li><a href="services.html#events">Events</a></li><li><a href="services.html#group">Group</a></li></ul></div>
+      <div class="footer-col"><h5>Fleet</h5><ul><li><a href="fleet.html">Sedan · SUV</a></li><li><a href="fleet.html">Sprinter Van</a></li><li><a href="fleet.html">28 Passenger Bus</a></li><li><a href="fleet.html">55 Party Bus</a></li></ul></div>
+      <div class="footer-col"><h5>Contact</h5>
+        <div class="footer-contact-item"><span class="footer-contact-icon">✆</span><div><a href="tel:+12125550100" style="color: var(--ivory);">+1 (212) 555-0100</a><br><span style="font-size:12px;color:var(--mist);">24/7 Reservations</span></div></div>
+        <div class="footer-contact-item"><span class="footer-contact-icon">✉</span><div><a href="mailto:reservations@sirachauffeur.com" style="color: var(--ivory); font-size:13px;">reservations@sirachauffeur.com</a></div></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 Sira Chauffeur LLC. All rights reserved.</p>
+      <ul class="footer-bottom-links"><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms</a></li></ul>
+    </div>
+  </div>
+</footer>
+
+<a href="https://tawk.to" target="_blank" rel="noopener" class="live-chat-btn">
+  <div class="chat-dot"></div><span>Live Chat</span>
+</a>
+<script src="../js/main.js"></script>
+</body>
+</html>
